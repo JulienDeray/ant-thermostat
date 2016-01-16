@@ -1,0 +1,24 @@
+{
+  "name": "ant-thermostat",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Julien Déray <julien@deray.fr>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JulienDeray/ant-thermostat",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

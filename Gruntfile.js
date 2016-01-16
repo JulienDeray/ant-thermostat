@@ -43,7 +43,8 @@ grunt.initConfig({
         options: {},
         all: {
             src: [
-                "bower_components/bootstrap/dist/css/bootstrap.min.css"
+                "bower_components/bootstrap/dist/css/bootstrap.min.css",
+                "public/stylesheets/inspinia.min.css"
             ],
             dest: "public/dist/bower.css"
         }

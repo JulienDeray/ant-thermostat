@@ -5,10 +5,78 @@
     <link rel='stylesheet' href='/dist/bower.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <h1>Dashboard</h1>
-    <p>Current temperature : <%= temperature %></p>
+  <body class="gray-bg">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Ant Thermostat</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+    <div class="row">
+      <div class="col-lg-6">
+          <div class="widget lazur-bg no-padding">
+              <div class="p-m">
+                  <h1 class="m-xs"><%= temperature %> °C</h1>
+
+                  <h3 class="font-bold no-margins">
+                      Temperature
+                  </h3>
+                  <small>From inside the anthill.</small>
+              </div>
+              <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-chart1"></div>
+              </div>
+          </div>
+      </div>
+  </div>
     <script src="dist/bower.js"></script>
+    <script>
+    $(document).ready(function(){
+        var d1 = [[1262304000000, 6], [1264982400000, 3057], [1267401600000, 20434], [1270080000000, 31982], [1272672000000, 26602], [1275350400000, 27826], [1277942400000, 24302], [1280620800000, 24237], [1283299200000, 21004], [1285891200000, 12144], [1288569600000, 10577], [1291161600000, 10295]];
+
+        var data1 = [
+            { label: "Data 1", data: d1, color: '#19a0a1'}
+        ];
+
+        $.plot($("#flot-chart1"), data1, {
+            xaxis: {
+                tickDecimals: 0
+            },
+            series: {
+                lines: {
+                    show: true,
+                    fill: true,
+                    fillColor: {
+                      colors: [{
+                          opacity: 1
+                      }, {
+                          opacity: 1
+                      }]
+                    }
+                },
+                points: {
+                    width: 0.1,
+                    show: false
+                }
+            },
+            grid: {
+                show: false,
+                borderWidth: 0
+            },
+            legend: {
+                show: false
+            }
+        });
+
+    });
+    </script>
+
   </body>
 </html>

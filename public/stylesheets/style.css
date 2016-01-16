@@ -19,6 +19,18 @@ a {
   margin: 5px;
 }
 
+.navbar-inverse {
+    background-color: #23c6c8;
+    border-color: #19a0a1;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  background-color: #19a0a1;
+}
+
 /* BACKGROUNDS */
 .gray-bg {
   background-color: #f3f3f4;

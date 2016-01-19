@@ -56,5 +56,15 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// Temperature measurement
+var TemperatureService = require('./lib/src/services/temperature.service.js');
+var MonitorService = require('./lib/src/services/monitor.service.js');
+
+const temperatureService = new TemperatureService(27);
+const monitorService = new MonitorService();
+
+setInterval(() => {
+  monitorService.recordTemperature( temperatureService.getTemperature() );
+}, 3*1000);
 
 module.exports = app;

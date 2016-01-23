@@ -60,12 +60,16 @@ app.use(function(err, req, res, next) {
 var TemperatureService = require('./lib/src/services/temperature.service.js');
 var MonitorService = require('./lib/src/services/monitor.service.js');
 var Constants = require('./lib/src/utils/constants.service.js');
+var ThermostatsService = require('./lib/src/services/thermostats.service.js');
 
 const temperatureService = new TemperatureService(27);
 const monitorService = new MonitorService();
+const thermostatsService = new ThermostatsService();
 
 setInterval(() => {
-  monitorService.recordTemperature( temperatureService.getTemperature() );
+  const temparature = temperatureService.getTemperature();
+  monitorService.recordTemperature( temparature );
+  thermostatsService.regulate(temparature);
 }, Constants.temperatureRecordInterval());
 
 module.exports = app;

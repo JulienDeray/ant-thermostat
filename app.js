@@ -57,19 +57,17 @@ app.use(function(err, req, res, next) {
 });
 
 // Temperature measurement
-var TemperatureService = require('./lib/src/services/temperature.service.js');
-var MonitorService = require('./lib/src/services/monitor.service.js');
 var Constants = require('./lib/src/utils/constants.service.js');
 var ThermostatsService = require('./lib/src/services/thermostats.service.js');
 
-const temperatureService = new TemperatureService(27);
-const monitorService = new MonitorService();
 const thermostatsService = new ThermostatsService();
 
+let temparatureN;
+let temperatureNMinus1;
+
 setInterval(() => {
-  const temparature = temperatureService.getTemperature();
-  monitorService.recordTemperature( temparature );
-  thermostatsService.regulate(temparature);
-}, Constants.temperatureRecordInterval());
+  thermostatsService.regulationRoutine(temparatureN, temperatureNMinus1);
+}, Constants.temperatureRecordInterval);
+
 
 module.exports = app;

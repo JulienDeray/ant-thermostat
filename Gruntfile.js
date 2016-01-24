@@ -37,6 +37,13 @@ grunt.initConfig({
                 atBegin: true,
                 spawn: false
             }
+        },
+        test: {
+            files: [ 'Gruntfile.js', 'lib/**/*.js', 'public/**/*.html', 'tests/front/unit/**/*.spec.js' ],
+            tasks: [ 'test' ],
+            options: {
+                atBegin: true
+            }
         }
     },
     concat_css: {
@@ -57,6 +64,13 @@ grunt.initConfig({
           script: 'bin/www'
         }
       }
+    },
+    jasmine : {
+        src : ['lib/**/*.js'],
+        options: {
+            specs : 'tests/front/unit/tests.js',
+            summary: true
+        }
     }
 });
 
@@ -66,8 +80,10 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-concat-css');
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     grunt.registerTask('default', ['bower', 'bower_concat', 'concat_css', 'express:dev']);
     grunt.registerTask('build', ['bower', 'bower_concat', 'concat_css']);
     grunt.registerTask('dev', ['build', 'watch:dev']);
+    grunt.registerTask('dev-test', ['build', 'watch:test']);
 };

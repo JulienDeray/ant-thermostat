@@ -39,8 +39,8 @@ grunt.initConfig({
             }
         },
         test: {
-            files: [ 'Gruntfile.js', 'lib/**/*.js', 'public/**/*.html', 'tests/front/unit/**/*.spec.js' ],
-            tasks: [ 'test' ],
+            files: [ 'Gruntfile.js', 'lib/**/*.js', 'public/**/*.html', 'test/**/*.spec.js' ],
+            tasks: [ 'mochaTest' ],
             options: {
                 atBegin: true
             }
@@ -65,12 +65,16 @@ grunt.initConfig({
         }
       }
     },
-    jasmine : {
-        src : ['lib/**/*.js'],
+    mochaTest: {
+      test: {
         options: {
-            specs : 'tests/front/unit/tests.js',
-            summary: true
-        }
+          reporter: 'progress',
+          captureFile: 'results.txt',
+          quiet: false,
+          clearRequireCache: false
+        },
+        src: ['test/**/*.js']
+      }
     }
 });
 
@@ -80,7 +84,7 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-concat-css');
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-express-server');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('default', ['bower', 'bower_concat', 'concat_css', 'express:dev']);
     grunt.registerTask('build', ['bower', 'bower_concat', 'concat_css']);

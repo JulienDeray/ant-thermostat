@@ -64,17 +64,6 @@ grunt.initConfig({
           script: 'bin/www'
         }
       }
-    },
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'progress',
-          captureFile: 'results.txt',
-          quiet: false,
-          clearRequireCache: false
-        },
-        src: ['test/**/*.js']
-      }
     }
 });
 
@@ -84,7 +73,6 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-concat-css');
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-express-server');
-    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('default', ['bower', 'bower_concat', 'concat_css', 'express:dev']);
     grunt.registerTask('build', ['bower', 'bower_concat', 'concat_css']);

@@ -13,6 +13,7 @@
     "ds18b20": "^0.1.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+    "gpio": "^0.2.7",
     "grunt": "^0.4.5",
     "grunt-contrib-nodeunit": "^0.4.1",
     "mocha": "^2.4.5",

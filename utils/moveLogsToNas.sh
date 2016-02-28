@@ -2,11 +2,11 @@
 
 SERVER='root@ananas.local'
 SERVER_LOG_DIR='/volume1/homes/julienderay/ant-logs'
-LOCAL_LOG_DIR='ant-logs'
+LOCAL_LOG_DIR='/home/pi/ant-logs'
 
-TMP_SERVER_LOGS_LIST='ananas-logs.tmp'
-TMP_LOCAL_LOGS_LIST='local-logs.tmp'
-DIFF_FILES_LIST='diff.tmp'
+TMP_SERVER_LOGS_LIST='/home/pi/ananas-logs.tmp'
+TMP_LOCAL_LOGS_LIST='/home/pi/local-logs.tmp'
+DIFF_FILES_LIST='/home/pi/diff.tmp'
 
 ssh $SERVER "ls $SERVER_LOG_DIR" > $TMP_SERVER_LOGS_LIST
 ls $LOCAL_LOG_DIR > $TMP_LOCAL_LOGS_LIST

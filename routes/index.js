@@ -9,6 +9,7 @@ var temperatureService = new TemperatureService();
 var HeaterService = require('../lib/src/services/heater.service.js');
 let heaterService = new HeaterService();
 
+var Constants = require('../lib/src/utils/constants.service.js');
 function isNight() {
   const hourNow = new Date().getHours();
   return (hourNow >= Constants.nightHours || hourNow < Constants.dayHours);

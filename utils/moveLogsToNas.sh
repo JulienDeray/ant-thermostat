@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd /home/pi
+eval `ssh-agent -s`
 
 SERVER='root@ananas.local'
 SERVER_LOG_DIR='/volume1/homes/julienderay/ant-logs'
@@ -20,3 +21,5 @@ while read logFile; do
 done < $DIFF_FILES_LIST
 
 rm $TMP_LOCAL_LOGS_LIST $TMP_SERVER_LOGS_LIST $DIFF_FILES_LIST
+
+kill $SSH_AGENT_PID

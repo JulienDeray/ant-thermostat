@@ -86,7 +86,7 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-mocha-test');
 
-    grunt.registerTask('default', ['bower', 'bower_concat', 'concat_css', 'express:dev']);
+    grunt.registerTask('default', ['bower', 'bower_concat', 'concat_css', 'express:dev', 'express-keepalive']);
     grunt.registerTask('build', ['bower', 'bower_concat', 'concat_css']);
     grunt.registerTask('dev', ['build', 'watch:dev']);
     grunt.registerTask('dev-test', ['build', 'watch:test']);

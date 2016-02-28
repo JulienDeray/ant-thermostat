@@ -2,6 +2,7 @@
 
 cd /home/pi
 eval `ssh-agent -s`
+SSH_AUTH_SOCK=/tmp/ssh-J9m35ZYHxXwg/agent.24232
 
 SERVER='root@ananas.local'
 SERVER_LOG_DIR='/volume1/homes/julienderay/ant-logs'

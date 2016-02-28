@@ -1,4 +1,6 @@
-#! /bin/zsh
+#!/bin/sh
+
+cd /home/pi
 
 SERVER='root@ananas.local'
 SERVER_LOG_DIR='/volume1/homes/julienderay/ant-logs'

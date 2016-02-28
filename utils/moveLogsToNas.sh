@@ -1,5 +1,10 @@
 #!/bin/sh
 
+##
+# Line to add in crontab
+# 0 0 * * * /home/pi/ant-thermostat/utils/moveLogsToNas.sh
+##
+
 cd /home/pi
 eval `ssh-agent -s`
 SSH_AUTH_SOCK=/tmp/ssh-J9m35ZYHxXwg/agent.24232
